@@ -1,0 +1,17 @@
+.transfer {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 8px;
+}
+.transfer-btns {
+    align-self: center;
+    display: grid;
+    justify-content: center;
+    height: 50%;
+}
+.transfer .ant-table-body{
+    overflow-y: auto !important;
+}
+.transfer-left,.transfer-right{
+    /* overflow: auto; */
+}
