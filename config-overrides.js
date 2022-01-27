@@ -4,7 +4,7 @@ const { override, addLessLoader } = require('customize-cra')
 
 const path = require('path')
 const paths = require('react-scripts/config/paths')
-paths.appBuild = path.join(path.dirname(paths.appBuild), 'doc')
+paths.appBuild = path.join(path.dirname(paths.appBuild), 'docs')
 
 module.exports = override()
 
