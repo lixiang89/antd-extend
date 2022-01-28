@@ -1,21 +1,23 @@
 import './App.css';
-import 'antd/dist/antd.css';
 import Transfer from './demo/transfer'
+import Form from './demo/renderForm'
 import Test from './demo/test'
 import { useState } from 'react';
 
 const map={
     transfer:<Transfer />,
-    test:<Test />
+    test:<Test />,
+    Form:<Form />,
 }
 function App() {
-    const [action, setAction] = useState()
+    const [action, setAction] = useState('test')
     
     return (
         <div className="App">
             <div className="links">
-                <a onClick={()=>setAction('test')}>test</a>
+                <a onClick={()=>setAction('test')}>home</a>
                 <a onClick={()=>setAction('transfer')}>transfer</a>
+                <a onClick={()=>setAction('Form')}>Form</a>
             </div>
             {map[action]}
         </div>

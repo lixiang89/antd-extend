@@ -15,7 +15,7 @@ const Transfer=({
 
     const renderColumns=useMemo(()=>{
         return columns|| [{dataIndex:rowKey,title:'全选'}]
-    },[])
+    },[columns,rowKey])
     
     const [sourceData, setSourceData] = useState(dataSource||[])
     const [targetData, setTargetData] = useState(targetSource||[])
@@ -35,25 +35,24 @@ const Transfer=({
             selectedRowKeys:state[type][0],
             onChange: (keys,rows) => {
                 dispatch({type,keys,rows})
-                // setKeys(keys)
             }
         }
     }
 
     const del=(arr,data)=>{
         console.log(arr,data,'del')
-        return arr.filter(item=>!data.find(d=>d[rowKey]==item[rowKey]))
+        return arr.filter(item=>!data.find(d=>d[rowKey]===item[rowKey]))
     }
 
     const toRight=()=>{
-        const [keys,rows]=state.left
+        const [,rows]=state.left
         setTargetData(td=>[...td,...rows])
         setSourceData(sd=>del(sd,rows))
         dispatch({type:'left'})
     }
 
     const toLeft=()=>{
-        const [keys,rows]=state.right
+        const [,rows]=state.right
         setTargetData(td=>del(td,rows))
         setSourceData(sd=>[...sd,...rows])
         dispatch({type:'right'})
@@ -61,7 +60,7 @@ const Transfer=({
 
     useEffect(()=>{
         onChange(targetData)
-    },[targetData])
+    },[targetData,onChange])
 
 
     return <div className="transfer">
