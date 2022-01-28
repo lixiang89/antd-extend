@@ -7,8 +7,12 @@ const ins=<div>
     通过配置来生成Form<br />
     fields:生成表单的配置arr<br />
         label: item的label<br />
+        required: 是否必填<br />
         field: getFieldDecorator的field<br />
+        fieldOptions：getFieldDecorator的field的第二个入参，可传rules，会覆盖掉require<br />
         renderElement：getFieldDecorator返回函数的入参，需返回jsx<br />
+        props: item的props<br />
+    <br />
     {`const fields=[
         {
             label:'姓名',
@@ -34,7 +38,9 @@ const ins=<div>
         }
     ]
     `}<br />
+    <br />
     formData：表单值 obj<br />
+    <br />
     {
         `const formData={
             name:'lily',
@@ -42,11 +48,28 @@ const ins=<div>
             birthday:moment('2000-02-02')
         }`
     }<br />
+    <br />
     disabled：是否禁用表单，可以和renderElement配合使用<br />
     onChange：表单变化时回调<br />
     getForm：获取form对象<br />
     formProps：Form的props<br />
     itemProps：item的props<br />
+    <br />
+    {
+        `<RenderForm 
+            fields={fields}
+            formData={formData}
+            disabled
+            onChange={()=>{}}
+            getForm={f=>form.current=f}
+            formProps={{}}
+            itemProps={{
+                labelCol: { span: 4 },
+                wrapperCol: { span: 14 },
+            }}
+        />`
+    }<br />
+    <br />
 </div>
 const fields=[
     {
@@ -59,6 +82,7 @@ const fields=[
     {
         label:'年龄',
         field:'age',
+        required:false,
         renderElement(){
             return <Input placeholder="年龄" />
         }
