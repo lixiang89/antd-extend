@@ -1,3 +1,5 @@
+import { Input,DatePicker } from 'antd';
+
 const columns=[
     {
         dataIndex:'name',
@@ -24,8 +26,37 @@ const targetSource=[
     {name:'mali3',id:9},
 ]
 
+const fields=[
+    {
+        label:'姓名',
+        field:'name',
+        element:<Input placeholder="姓名" />
+    },
+    {
+        label:'年龄',
+        field:'age',
+        element:<Input placeholder="年龄" />
+    },
+    {
+        label:'身高',
+        field:'height',
+        element:<Input placeholder="身高" />
+    },
+    {
+        label:'体重',
+        field:'weight',
+        element:<Input placeholder="体重" />
+    },
+    {
+        label:'生日',
+        field:'birthday',
+        element: <DatePicker placeholder="生日"   />
+    }
+]
+
 export {
     columns,
     dataSource,
-    targetSource
+    targetSource,
+    fields
 }

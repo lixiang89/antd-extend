@@ -1,13 +1,16 @@
+import { useState } from 'react';
+import { Button } from 'antd';
 import './App.css';
 import Transfer from './demo/transfer'
 import Form from './demo/renderForm'
 import Test from './demo/test'
-import { useState } from 'react';
+import QueryList from './demo/queryList';
 
 const map={
     transfer:<Transfer />,
     test:<Test />,
     Form:<Form />,
+    QueryList:<QueryList />
 }
 function App() {
     const [action, setAction] = useState('test')
@@ -15,9 +18,10 @@ function App() {
     return (
         <div className="App">
             <div className="links">
-                <a onClick={()=>setAction('test')}>home</a>
-                <a onClick={()=>setAction('transfer')}>transfer</a>
-                <a onClick={()=>setAction('Form')}>Form</a>
+                <Button type='link' onClick={()=>setAction('test')}>home</Button>
+                <Button type='link' onClick={()=>setAction('transfer')}>transfer</Button>
+                <Button type='link' onClick={()=>setAction('Form')}>Form</Button>
+                <Button type='link' onClick={()=>setAction('QueryList')}>QueryList</Button>
             </div>
             {map[action]}
         </div>
