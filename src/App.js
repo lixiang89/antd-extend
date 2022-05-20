@@ -1,18 +1,15 @@
 import { useState } from 'react';
 import { Button } from 'antd';
 import './App.css';
-import Transfer from './demo/transfer'
-import Form from './demo/renderForm'
-import Test from './demo/test'
-import QueryList from './demo/queryList';
-import EditTable from './demo/editTable';
+import {Test,Transfer,Form,QueryList,EditTable,Input} from './demo/index'
 
 const map={
+    home:<Test />,
     transfer:<Transfer />,
-    test:<Test />,
     Form:<Form />,
     QueryList:<QueryList />,
     EditTable:<EditTable />,
+    Input:<Input />,
 }
 function App() {
     const [action, setAction] = useState('test')
@@ -20,11 +17,9 @@ function App() {
     return (
         <div className="App">
             <div className="links">
-                <Button type='link' onClick={()=>setAction('test')}>home</Button>
-                <Button type='link' onClick={()=>setAction('transfer')}>transfer</Button>
-                <Button type='link' onClick={()=>setAction('Form')}>Form</Button>
-                <Button type='link' onClick={()=>setAction('QueryList')}>QueryList</Button>
-                <Button type='link' onClick={()=>setAction('EditTable')}>EditTable</Button>
+                {Object.keys(map).map((key)=>{
+                    return <Button key={key} type='link' onClick={()=>setAction(key)}>{key}</Button>
+                })}
             </div>
             {map[action]}
         </div>

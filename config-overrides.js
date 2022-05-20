@@ -1,4 +1,4 @@
-const { override, fixBabelImports,setWebpackPublicPath } = require('customize-cra')
+const { override, fixBabelImports,setWebpackPublicPath,addBabelPlugins } = require('customize-cra')
 
 const path = require('path')
 const paths = require('react-scripts/config/paths')
@@ -10,7 +10,10 @@ module.exports = override(
         libraryName: 'antd',
         libraryDirectory: 'es',
         style: 'css' // `style: true` 会加载 less 文件
-    })
+    }),
+    ...addBabelPlugins(
+        "@babel/plugin-proposal-export-default-from"
+    )
 )
 
 

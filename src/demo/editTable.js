@@ -3,7 +3,7 @@ import { useEffect,useRef } from 'react';
 import moment from 'moment'
 
 const ins=<div>
-    通过配置来生成Form<br />
+    可编辑表格<br />
     
 </div>
 const columns=[
