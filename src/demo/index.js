@@ -1,6 +1,6 @@
-export Transfer from './transfer'
-export Form from './renderForm'
-export Test from './test'
-export QueryList from './queryList';
-export EditTable from './editTable';
-export Input from './cInput';
+export {default as Transfer} from './transfer'
+export {default as Form} from './renderForm'
+export {default as Test} from './test'
+export {default as QueryList} from './queryList';
+export {default as EditTable} from './editTable';
+export {default as Input} from './cInput';

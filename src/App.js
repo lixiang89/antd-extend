@@ -12,7 +12,7 @@ const map={
     Input:<Input />,
 }
 function App() {
-    const [action, setAction] = useState('test')
+    const [action, setAction] = useState('home')
     
     return (
         <div className="App">
